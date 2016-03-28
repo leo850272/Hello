@@ -10,12 +10,13 @@ knitr::opts_chunk$set(echo = TRUE)
 library(SportsAnalytics)
 NBA1415<-fetch_NBAPlayerStatistics("14-15")
 ## 各隊辛苦的球員
-
+```{r setup, include=FALSE}
 計算依據出戰分鐘數最多的球員
 MaxMinutes<-aggregate(TotalMinutesPlayed~Team,NBA1415,max)
 NBA1415MaxMinutes<-merge(NBA1415,MaxMinutes)
 output<-NBA1415MaxMinutes[order(NBA1415MaxMinutes$TotalMinutesPlayed,decreasing = T),c("Team","Name","TotalMinutesPlayed")]
 kable(output,digits=2)
+```
 ## 各隊得分王
 
 計算依據為全季總得分最多的球員
