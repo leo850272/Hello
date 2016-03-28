@@ -6,7 +6,8 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-#install.packages("SportsAnalytics")
+#NBA 2014-2015球季 各隊分析
+##資料讀進來的程式碼
 library(SportsAnalytics)
 NBA1415<-fetch_NBAPlayerStatistics("14-15")
 ## 各隊辛苦的球員
