@@ -11,17 +11,20 @@ knitr::opts_chunk$set(echo = TRUE)
 library(SportsAnalytics)
 NBA1415<-fetch_NBAPlayerStatistics("14-15")
 ## 各隊辛苦的球員
-```{r setup, include=FALSE}
+
 計算依據出戰分鐘數最多的球員
+
+```{r setup, include=FALSE}
 MaxMinutes<-aggregate(TotalMinutesPlayed~Team,NBA1415,max)
 NBA1415MaxMinutes<-merge(NBA1415,MaxMinutes)
 output<-NBA1415MaxMinutes[order(NBA1415MaxMinutes$TotalMinutesPlayed,decreasing = T),c("Team","Name","TotalMinutesPlayed")]
 kable(output,digits=2)
 ```
 ## 各隊得分王
-```{r setup, include=FALSE}
+
 計算依據為全季總得分最多的球員
 
+```{r setup, include=FALSE}
 MaxPoint<-aggregate(TotalPoints~Team,NBA1415,max)
 #tapply(NBA1415$TotalPoints,NBA1415$Team,max)
 NBA1415MaxPoint<-merge(NBA1415,MaxPoint,by=c("Team","TotalPoints"))
@@ -32,6 +35,7 @@ kable(output, digits=2)
 ## 各隊最有效率的球員
 
 計算依據總得分數/出戰總分鐘數
+
 ```{r setup, include=FALSE}
 NBA1415$Efficiency<-NBA1415$TotalPoints/NBA1415$TotalMinutesPlayed 
 MaxEfficiency<-aggregate(Efficiency~Team,NBA1415,max)
@@ -42,6 +46,7 @@ kable(output,digits = 2)
 ## 各隊三分球出手最準的球員
 
 依據三分球投進總數
+
 ```{r setup, include=FALSE}
 NBA1415$ThreesRate<-NBA1415$ThreesMade/NBA1415$ThreesAttempted 
 MaxThreesRate<-aggregate(ThreesRate~Team,NBA1415,max)
