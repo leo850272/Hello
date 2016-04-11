@@ -27,7 +27,7 @@ nrow(totalPage)
 ## 每日發文數分析
 
 
-分析粉DoctorKoWJ絲團每天的發文數，先將其轉換為台灣時區，可以看到1月9日篇文數4篇最多，可能因為柯文哲當天挑戰單車「一日北高，雙城挑戰」
+分析DoctorKoWJ粉絲團每天的發文數，先將其轉換為台灣時區，可以看到1月9日篇文數4篇最多，可能因為柯文哲當天挑戰單車「一日北高，雙城挑戰」的關係
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
                                  format = "%Y-%m-%dT%H:%M:%S+0000", 
