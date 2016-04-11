@@ -11,6 +11,8 @@ if (!require('Rfacebook')){
   install.packages("Rfacebook")
   library(Rfacebook)
 }
+```
+```{r}
 token<-'EAACEdEose0cBAHhbhifFoYj97WPWNJoM8mTEu4CrG180nMbtUPGD7jzayr2cbyhxf6RNpdNhKfquOBvIRAGZCoHDvhhEmHDdXJwy7l5wiSE4RmDdEu4a3NcO5ZBZAYeAWWmyOX7BlBt5M0rTOJOrbSBFaWZACwtOimv6is18MjvmxyUX0Q3pl02nU09ZBdPAZD'
 totalPage<-NULL
 lastDate<-Sys.Date()
