@@ -1,11 +1,11 @@
 ---
-title: "Facebook�����Τ��R�]���R�M��:�_����^"
+title: "Facebook粉絲團分析（分析專頁:柯文哲）"
 output: github_document
 ---
-���R�_��������M�~�A��Ƥ��R�϶���2016/01/01��
-2016/04/11�K����R
+分析柯文哲粉絲專業，資料分析區間為2016/01/01至
+2016/04/11貼文分析
 
-## Ū��DoctorKoWJ�����θ��
+## 讀取DoctorKoWJ粉絲團資料
 ```{r}
 if (!require('Rfacebook')){
   install.packages("Rfacebook")
@@ -22,10 +22,10 @@ for(i in 1:(length(DateVectorStr)-1)){
 }
 nrow(totalPage)
 ```
-## �C��o��Ƥ��R
+## 每日發文數分析
 
 
-���R��DoctorKoWJ���ΨC�Ѫ��o��ơA���N���ഫ���x�W�ɰϡA�i�H�ݨ�1��9��g���4�g�̦h�A�i��]���_������ѬD�Գ樮�u�@��_���A�����D�ԡv
+分析粉DoctorKoWJ絲團每天的發文數，先將其轉換為台灣時區，可以看到1月9日篇文數4篇最多，可能因為柯文哲當天挑戰單車「一日北高，雙城挑戰」
 ```{r}
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
                                  format = "%Y-%m-%dT%H:%M:%S+0000", 
@@ -36,9 +36,10 @@ totalPage$weekdays <-weekdays(as.Date(totalPage$dateTPE))
 PostCount<-aggregate(id~dateTPE,totalPage,length)
 library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
-������
-## �C��likes�Ƥ��R
-�i�H�ݨ�1��16�骺���g�ư��F32�U�H�̦h�A�i��]�����Ѭ����|��A�ӥB�L�o�������|�P�Q���峹
+ˋˋˋ
+## 每日likes數分析
+
+可以看到1月16日的按讚數高達32萬人最多，可能因為當天為選舉日，而且他發有關選舉感想的文章
 ```{r}
 
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -52,8 +53,8 @@ library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
 
 ```
-## �C��comments�Ƥ��R
-�i�H�ݨ�1��10��d���Ʊ���6000�̦h�A�i��]���L�觹���樮�D�ԡA�åB�o�D�ԧ������P�Q�峹�t�G
+## 每日comments數分析
+可以看到1月10日留言數接近6000最多，可能因為他剛完成單車挑戰，並且發挑戰完成的感想文章緣故
 ```{r}
 
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
@@ -66,8 +67,8 @@ PostCount<-aggregate(comments_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(PostCount[order(PostCount$comments_count,decreasing = T),]))
 ```
-## �C��shares�Ƥ��R
-�i�H�ݨ�1��14����ɼ�34775���̰��A�i��]���L���ѵo���峹���e�ܿE�y�H�ߡA���e���y�ӡA������ڷQ
+## 每日shares數分析
+可以看到1月14日分享數34775次最高，可能因為他當天發的文章內容很激勵人心，內容很勵志，有提到夢想
 ```{r}
 
 totalPage$datetime <- as.POSIXct(totalPage$created_time, 
