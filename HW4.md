@@ -38,7 +38,7 @@ totalPage$weekdays <-weekdays(as.Date(totalPage$dateTPE))
 PostCount<-aggregate(id~dateTPE,totalPage,length)
 library(knitr)
 kable(head(PostCount[order(PostCount$id,decreasing = T),]))
-ˋˋˋ
+```
 |   |dateTPE    | id|
 |:--|:----------|--:|
 |6  |2016-01-09 |  4|
@@ -61,7 +61,6 @@ totalPage$weekdays <-weekdays(as.Date(totalPage$dateTPE))
 PostCount<-aggregate(likes_count~dateTPE,totalPage,mean)
 library(knitr)
 kable(head(PostCount[order(PostCount$likes_count,decreasing = T),]))
-
 ```
 |   |dateTPE    | likes_count|
 |:--|:----------|-----------:|
