@@ -1,8 +1,6 @@
 1928-1969間，小兒麻痺在美國各州的發生率變化
 ================
 
-1928-1969間，小兒麻痺在美國各州的發生率變化
-===========================================
 
 資料前處理
 ----------
@@ -116,4 +114,4 @@ ggplot(polio.sumYear, aes(YEAR, variable)) + #aes(x,y)
     scale_fill_gradient(low = "gray",high = "red") #數值低：灰色
 ```
 
-![](HW_0514_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](Hello/blob/master/Rplot.png)
