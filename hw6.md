@@ -114,4 +114,4 @@ ggplot(polio.sumYear, aes(YEAR, variable)) + #aes(x,y)
     scale_fill_gradient(low = "gray",high = "red") #數值低：灰色
 ```
 
-![](Hello/blob/master/Rplot.png)
+![](https://github.com/leo850272/Hello/blob/master/Rplot.png)
